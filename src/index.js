@@ -19,7 +19,11 @@ const pixabayAPI = new PixabayAPI();
 form.addEventListener('submit', onSearch);
 
 let shownImages = 0;
-let lightbox = {};
+const lightbox = new SimpleLightbox('.gallery a', {
+    showCounter: false,
+    captionsData: 'alt',
+    captionsDelay: 250,
+});
 
 const endlessScroll = new IntersectionObserver(
     ([entry], observer) => {
@@ -60,13 +64,13 @@ function resetGallery() {
     gallery.innerHTML = '';
 }
 
-function addLightbox() {
-    lightbox = new SimpleLightbox('.gallery a', {
-        showCounter: false,
-        captionsData: 'alt',
-        captionsDelay: 250,
-    });
-}
+// function addLightbox() {
+//     lightbox = new SimpleLightbox('.gallery a', {
+//         showCounter: false,
+//         captionsData: 'alt',
+//         captionsDelay: 250,
+//     });
+// }
 
 async function onSearch(e) {
     e.preventDefault();
@@ -90,7 +94,7 @@ async function onSearch(e) {
             `Hooray! We found ${data.totalHits} images.`
         );
         appendPhotosMarkup(data.hits);
-        addLightbox();
+        lightbox.refresh();
         exodus(data.totalHits);
     } catch (error) {
         console.log(error);
