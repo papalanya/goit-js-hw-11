@@ -1,8 +1,7 @@
 import './sass/main.scss';
 import Notiflix from 'notiflix';
 
-import SimpleLightbox from "Simplelightbox";
-// Дополнительный импорт стилей
+import SimpleLightbox from 'Simplelightbox';
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 import PixabayAPI from './js/PixabayAPI.js';
