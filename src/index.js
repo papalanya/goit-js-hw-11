@@ -50,11 +50,11 @@ function exodus(totalHits) {
 }
 
 function showSearchEnd() {
-    searchEnd.classList.remove('is-hidden')
+    searchEnd.classList.add('is-visible')
 }
 
 function hideSearchEnd() {
-    searchEnd.classList.add('is-hidden');
+    searchEnd.classList.remove('is-visible');
 }
 
 function resetGallery() {
